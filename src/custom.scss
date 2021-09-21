@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap.scss';
 
 // Custom css goes here!
-.navbar {
+.navbar, .movie-filter{
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -9,10 +9,27 @@
     margin: 20px;
 }
 
+.movie-overlay {
+    width: 30%;
+}
+
+.movie-filter {
+    justify-content: center;
+}
+
+.movie-filter > .filter-button {
+    background: none;
+    border: none;
+    color: #f1356d;
+}
+
+.movie-list > .movie-preview, .movie-filter{
+    border-bottom: 2px solid #fafafa;
+}
+
 .movie-preview {
     padding: 10px 16px;
     margin: 20px;
-    border-bottom: 2px solid #fafafa;
 }
 
 .movie-preview h3 {

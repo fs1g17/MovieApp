@@ -1,11 +1,17 @@
-import useFetch from "./useFetch";
+import { useState } from "react";
 
-const MovieList = ({ studio }) => {
-    const { data, isPending, error } = useFetch('http://my-json-server.typicode.com/1SpatialGroupLtd/studiodata/productions?studioId=' + studio);
+const MovieList = ({ data, sortFunc }) => {
+    function dateSort(movie1, movie2){
+        return new Date(movie1.released).getTime() - new Date(movie2.released).getTime();
+    }
+
+    function scoreSort(movie1, movie2){
+        return movie1.score - movie2.score;
+    }
 
     return ( 
         <div className="movie-list">
-            {data && data.map(movie => (
+            {data && data.sort(sortFunc === 0 ? dateSort : scoreSort).reverse().map(movie => (
                 <div className="movie-preview" key={ movie.id }>
                     <h3>{ movie.title }</h3>
                     <p>Released: { movie.released }</p>
