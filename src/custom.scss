@@ -1,0 +1,26 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+// Custom css goes here!
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    column-gap: 40px;
+    margin: 20px;
+}
+
+.movie-preview {
+    padding: 10px 16px;
+    margin: 20px;
+    border-bottom: 2px solid #fafafa;
+}
+
+.movie-preview h3 {
+    font-size: 15px;
+    color: #f1356d;
+}
+
+.movie-preview:hover {
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+
