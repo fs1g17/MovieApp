@@ -9,8 +9,35 @@
     margin: 20px;
 }
 
+.movie-screen {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    padding: 10px;
+}
+
 .movie-overlay {
     width: 30%;
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+}
+
+.movie-poster {
+    margin: 20px;
+    padding: 20px;
+    flex-grow: 1;
+    max-width: 65%;
+    border: 2px solid #fafafa;
+    // border-color: #f1356d;
+}
+
+.movie-poster h3 {
+    font-size: 15px;
+    color: #f1356d;
 }
 
 .movie-filter {
