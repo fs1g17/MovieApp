@@ -1,26 +1,30 @@
 import useFetch from "./useFetch";
 import MovieFilters from "./MovieFilters";
 import MovieList from "./MovieList";
-import { useState } from "react";
 
 const MovieOverlay = ({ studio }) => {
-    const { data, isPending, error } = useFetch('http://my-json-server.typicode.com/1SpatialGroupLtd/studiodata/productions?studioId=' + studio);
-    const [ customSort, setCustomSort ] = useState(0);
+    const { data, setData } = useFetch('http://my-json-server.typicode.com/1SpatialGroupLtd/studiodata/productions?studioId=' + studio);
 
-    const setDateSort = () => {
-        console.log('set date sort');
-        setCustomSort(0);
+    const dateSort = (movie1, movie2) => {
+        return new Date(movie1.released).getTime() - new Date(movie2.released).getTime();
     }
 
-    const setScoreSort = () => {
-        console.log('set score sort');
-        setCustomSort(1);
+    const scoreSort = (movie1, movie2) => {
+        return movie1.score - movie2.score;
+    }
+
+    const sortByDate = () => {
+        setData([...data].sort(dateSort).reverse());
+    }
+
+    const sortByScore = () => {
+        setData([...data].sort(scoreSort).reverse());
     }
 
     return ( 
         <div className="movie-overlay">
-            {data && <MovieFilters setDateSort={setDateSort} setScoreSort={setScoreSort}/>}
-            {data && <MovieList data={data} sortFunc={customSort}/>}
+            {data && <MovieFilters sortByDate={sortByDate} sortByScore={sortByScore} />}
+            {data && <MovieList data={data} />}
         </div>
      );
 }

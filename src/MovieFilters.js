@@ -1,10 +1,10 @@
 import Button from 'react-bootstrap/Button';
 
-const MovieFilters = ({ setDateSort, setScoreSort }) => {
+const MovieFilters = ({ sortByDate, sortByScore }) => {
     return ( 
         <div className='movie-filter'>
-            <Button className='filter-button' onClick={setDateSort}>Newest First</Button>
-            <Button className='filter-button' onClick={setScoreSort}>Highest Score First</Button>
+            <Button className='filter-button' onClick={sortByDate}>Newest First</Button>
+            <Button className='filter-button' onClick={sortByScore}>Highest Score First</Button>
         </div>
      );
 }
